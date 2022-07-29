@@ -20,6 +20,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 5.625rem;
   height: 3.25rem;
+  font-weight: 700;
   border-radius: 0.5rem;
   margin-left: 0.5rem;
   font-size: 14px;

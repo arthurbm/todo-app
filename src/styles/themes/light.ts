@@ -6,6 +6,7 @@ export const light = {
     tertiary: '#262626',
     quaternary: '#808080',
     button: '#1E6F9F',
+    blue2: '#4EA8DE',
     whiteText: '#F2F2F2',
   },
 }

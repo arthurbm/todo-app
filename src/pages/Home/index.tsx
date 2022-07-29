@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 import { TaskActionKind, TaskActionType, TasksType } from '../../@types/tasks'
-import { InputTask } from '../../components'
+import { InputTask, TasksSection } from '../../components'
 
 export function Home() {
   const [tasks, dispatch] = useReducer(tasksReducer, [])
@@ -55,6 +55,7 @@ export function Home() {
   return (
     <>
       <InputTask tasks={tasks} dispatch={dispatch} />
+      <TasksSection tasks={tasks} />
     </>
   )
 }
