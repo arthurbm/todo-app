@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Image } from './styles'
 import { Moon, Sun, Todo } from '../../assets'
+// @ts-ignore
 
 // import { Container } from './styles';
 
