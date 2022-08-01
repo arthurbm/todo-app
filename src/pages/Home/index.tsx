@@ -18,7 +18,7 @@ export function Home() {
           {
             id: task.id,
             title: task.title,
-            isComplete: false,
+            isComplete: task.isComplete,
           },
         ]
       }
