@@ -28,7 +28,10 @@ export function TasksProvider({ children }: { children: React.ReactNode }) {
       case TaskActionKind.UpdateText: {
         return tasks.map((t) => {
           if (t.id === task.id) {
-            return task
+            return {
+              ...t,
+              title: task.title,
+            }
           } else {
             return t
           }
