@@ -1,15 +1,12 @@
-import React, { Dispatch, FormEvent, useEffect, useState } from 'react'
-import { TaskActionKind, TaskActionType, TaskType } from '../../@types/tasks'
+import React, { FormEvent, useState } from 'react'
+import { TaskActionKind } from '../../@types/tasks'
 import { Button, FormsContainer, Input } from './styles'
 import { v4 as uuidv4 } from 'uuid'
+import { useTasksContext } from '../../contexts/TaskContext'
 
-interface InputTaskProps {
-  tasks: TaskType[]
-  dispatch: Dispatch<TaskActionType>
-}
-
-export function InputTask({ tasks, dispatch }: InputTaskProps) {
+export function InputTask() {
   const [taskText, setTaskText] = useState('')
+  const { dispatch } = useTasksContext()
 
   function handleAddTask(e: FormEvent) {
     e.preventDefault()
@@ -19,10 +16,6 @@ export function InputTask({ tasks, dispatch }: InputTaskProps) {
     })
     setTaskText('')
   }
-
-  useEffect(() => {
-    console.log(tasks)
-  }, [tasks])
 
   return (
     <FormsContainer onSubmit={handleAddTask}>

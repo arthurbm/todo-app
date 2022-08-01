@@ -1,5 +1,6 @@
 import React from 'react'
-import { TaskType } from '../../@types/tasks'
+import { useTasksContext } from '../../contexts/TaskContext'
+import { TaskBox } from '../TaskBox'
 import {
   Container,
   CustomText,
@@ -8,11 +9,9 @@ import {
   TextContainer,
 } from './styles'
 
-interface TasksSectionProps {
-  tasks: TaskType[]
-}
+export function TasksSection() {
+  const { tasks } = useTasksContext()
 
-export function TasksSection({ tasks }: TasksSectionProps) {
   function getTotalTasksAmount() {
     return tasks.length
   }
@@ -38,7 +37,7 @@ export function TasksSection({ tasks }: TasksSectionProps) {
       </TextContainer>
       {tasks.map((task) => (
         <div key={task.id}>
-          <h2>{task.title}</h2>
+          <TaskBox task={task} />
         </div>
       ))}
     </Container>
