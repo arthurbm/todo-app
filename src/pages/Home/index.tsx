@@ -1,14 +1,11 @@
 import React, { useReducer } from 'react'
-import { TaskActionKind, TaskActionType, TasksType } from '../../@types/tasks'
+import { TaskActionKind, TaskActionType, TaskType } from '../../@types/tasks'
 import { InputTask, TasksSection } from '../../components'
 
 export function Home() {
   const [tasks, dispatch] = useReducer(tasksReducer, [])
 
-  function tasksReducer(
-    tasks: TasksType[],
-    action: TaskActionType,
-  ): TasksType[] {
+  function tasksReducer(tasks: TaskType[], action: TaskActionType): TaskType[] {
     const { type, task } = action
 
     switch (type) {

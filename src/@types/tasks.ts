@@ -1,4 +1,4 @@
-export interface TasksType {
+export interface TaskType {
   id: string
   title: string
   isComplete: boolean
@@ -6,7 +6,7 @@ export interface TasksType {
 
 export interface TaskActionType {
   type: string
-  task: TasksType
+  task: TaskType
 }
 
 export enum TaskActionKind {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TasksType } from '../../@types/tasks'
+import { TaskType } from '../../@types/tasks'
 import {
   Container,
   CustomText,
@@ -9,7 +9,7 @@ import {
 } from './styles'
 
 interface TasksSectionProps {
-  tasks: TasksType[]
+  tasks: TaskType[]
 }
 
 export function TasksSection({ tasks }: TasksSectionProps) {

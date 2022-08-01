@@ -1,10 +1,10 @@
 import React, { Dispatch, FormEvent, useEffect, useState } from 'react'
-import { TaskActionKind, TaskActionType, TasksType } from '../../@types/tasks'
+import { TaskActionKind, TaskActionType, TaskType } from '../../@types/tasks'
 import { Button, FormsContainer, Input } from './styles'
 import { v4 as uuidv4 } from 'uuid'
 
 interface InputTaskProps {
-  tasks: TasksType[]
+  tasks: TaskType[]
   dispatch: Dispatch<TaskActionType>
 }
 
