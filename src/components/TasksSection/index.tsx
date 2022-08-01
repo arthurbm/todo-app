@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { TaskType } from '../../@types/tasks'
 import { useTasksContext } from '../../contexts/TaskContext'
 import { TaskBox } from '../TaskBox'
 import {
@@ -11,6 +12,8 @@ import {
 
 export function TasksSection() {
   const { tasks } = useTasksContext()
+  const [completedTasks, setCompletedTasks] = useState<TaskType[]>()
+  const [uncompletedTasks, setUncompletedTasks] = useState<TaskType[]>()
 
   function getTotalTasksAmount() {
     return tasks.length
@@ -22,6 +25,11 @@ export function TasksSection() {
       return acc
     }, 0)
   }
+
+  useEffect(() => {
+    setCompletedTasks(tasks.filter((task) => task.isComplete))
+    setUncompletedTasks(tasks.filter((task) => !task.isComplete))
+  }, [tasks])
 
   return (
     <Container>
@@ -35,7 +43,14 @@ export function TasksSection() {
           <NumberTextCompleted>{`${getCompletedTasksAmout()} de ${getTotalTasksAmount()}`}</NumberTextCompleted>
         </div>
       </TextContainer>
-      {tasks.map((task) => (
+
+      {uncompletedTasks?.map((task) => (
+        <div key={task.id}>
+          <TaskBox task={task} />
+        </div>
+      ))}
+
+      {completedTasks?.map((task) => (
         <div key={task.id}>
           <TaskBox task={task} />
         </div>

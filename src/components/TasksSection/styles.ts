@@ -16,7 +16,7 @@ export const Container = styled.div`
 `
 
 export const NumberText = styled.p`
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 50%;
@@ -26,7 +26,7 @@ export const NumberText = styled.p`
 `
 
 export const NumberTextCompleted = styled.p`
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 999px;
@@ -41,6 +41,7 @@ export const TextContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-bottom: 2rem;
 `
 
 export const CustomText = styled.p<CustomTextProps>`

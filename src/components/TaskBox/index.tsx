@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { TaskActionKind, TaskType } from '../../@types/tasks'
-import { Uncheck } from '../../assets'
+import { Check, Trash, Uncheck } from '../../assets'
 import { useTasksContext } from '../../contexts/TaskContext'
-import { CheckUncheckImg, Container, Text } from './styles'
+import { Image, Container, Text, FlexContainer, CrossedText } from './styles'
 
 interface TaskBoxProps {
   task: TaskType
@@ -18,12 +18,31 @@ export function TaskBox({ task }: TaskBoxProps) {
     })
   }
 
+  function onDelete() {
+    dispatch({
+      type: TaskActionKind.Deleted,
+      task,
+    })
+  }
+
   useEffect(() => {}, [])
 
   return (
     <Container>
-      <CheckUncheckImg src={Uncheck} alt="uncheck" onClick={checkUncheck} />
-      <Text>{task.title}</Text>
+      <FlexContainer>
+        {task.isComplete ? (
+          <>
+            <Image src={Check} onClick={checkUncheck} alt="checked" />
+            <CrossedText>{task.title}</CrossedText>
+          </>
+        ) : (
+          <>
+            <Image src={Uncheck} alt="unchecked" onClick={checkUncheck} />
+            <Text>{task.title}</Text>
+          </>
+        )}
+      </FlexContainer>
+      <Image src={Trash} alt="trash" onClick={onDelete} />
     </Container>
   )
 }
