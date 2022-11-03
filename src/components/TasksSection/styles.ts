@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 4rem auto 0 auto;
+  margin-top: 4rem;
   @media (min-width: 768px) {
     width: 46rem;
   }

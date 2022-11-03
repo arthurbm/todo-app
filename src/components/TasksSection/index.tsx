@@ -38,11 +38,11 @@ export function TasksSection() {
     <Container>
       <TextContainer>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <CustomText color="blue">Tarefas criadas</CustomText>
+          <CustomText color="blue">Criadas</CustomText>
           <NumberText>{getTotalTasksAmount()}</NumberText>
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <CustomText color="purple">Tarefas completas</CustomText>
+          <CustomText color="purple">Completas</CustomText>
           <NumberTextCompleted>{`${getCompletedTasksAmout()} de ${getTotalTasksAmount()}`}</NumberTextCompleted>
         </div>
       </TextContainer>

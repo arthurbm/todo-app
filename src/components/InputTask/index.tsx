@@ -25,7 +25,7 @@ export function InputTask() {
         value={taskText}
         onChange={(e) => setTaskText(e.target.value)}
       />
-      <Button type="submit">Criar +</Button>
+      <Button type="submit">+</Button>
     </FormsContainer>
   )
 }
