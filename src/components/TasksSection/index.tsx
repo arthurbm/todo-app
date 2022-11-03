@@ -5,15 +5,18 @@ import { TaskBox } from '../TaskBox'
 import {
   Container,
   CustomText,
+  ListItem,
   NumberText,
   NumberTextCompleted,
   TextContainer,
 } from './styles'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export function TasksSection() {
   const { tasks } = useTasksContext()
   const [completedTasks, setCompletedTasks] = useState<TaskType[]>()
   const [uncompletedTasks, setUncompletedTasks] = useState<TaskType[]>()
+  const [parent] = useAutoAnimate()
 
   function getTotalTasksAmount() {
     return tasks.length
@@ -44,17 +47,20 @@ export function TasksSection() {
         </div>
       </TextContainer>
 
-      {uncompletedTasks?.map((task) => (
-        <div key={task.id}>
-          <TaskBox task={task} />
-        </div>
-      ))}
+      {/* @ts-ignore */}
+      <ul ref={parent}>
+        {uncompletedTasks?.map((task) => (
+          <ListItem key={task.id}>
+            <TaskBox task={task} />
+          </ListItem>
+        ))}
 
-      {completedTasks?.map((task) => (
-        <div key={task.id}>
-          <TaskBox task={task} />
-        </div>
-      ))}
+        {completedTasks?.map((task) => (
+          <ListItem key={task.id}>
+            <TaskBox task={task} />
+          </ListItem>
+        ))}
+      </ul>
     </Container>
   )
 }

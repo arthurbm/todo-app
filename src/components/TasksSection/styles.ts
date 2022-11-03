@@ -15,6 +15,10 @@ export const Container = styled.div`
   }
 `
 
+export const ListItem = styled.li`
+  list-style-type: none;
+`
+
 export const NumberText = styled.p`
   font-size: 0.75rem;
   font-weight: 700;
